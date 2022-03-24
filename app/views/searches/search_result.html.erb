@@ -1,5 +1,8 @@
-<h2>Results index</h2>
-
+<% if @range == "User" %>
+  <h2>Users search for " <%#= user.word%> "</h2>
+<% else %>
+  <h2>Books search for " <%#= book.word %> "</h2>
+<% end %>
 <table class="table table-hover table-inverse">
   <!--検索対象モデルがUserの時 -->
   <% if @range == "User" %>
