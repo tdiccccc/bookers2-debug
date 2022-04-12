@@ -10,7 +10,7 @@
       <h2>Books</h2>
       <%= render 'books/index',books: @books %>
       <%= render 'post-count/day-count', today_book: @today_book, yesterday_book: @yesterday_book %>
-      <%= render 'post-count/weak-count', books: @books %>
+      <%= render 'post-count/weak-count', this_week_book: @this_week_book, last_week_book: @last_week_book %>
     </div>
   </div>
 </div>

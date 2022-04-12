@@ -2085,3 +2085,205 @@ Processing by UsersController#show as HTML
 Completed 200 OK in 152ms (Views: 139.5ms | ActiveRecord: 3.5ms | Allocations: 26389)
 
 
+Started GET "/" for 122.223.5.191 at 2022-04-12 13:08:22 +0000
+Cannot render console from 122.223.5.191! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomesController#top as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering homes/top.html.erb within layouts/application
+  Rendered homes/top.html.erb within layouts/application (Duration: 6.4ms | Allocations: 388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 4.7ms | Allocations: 797)
+  Rendered searches/_form.html.erb (Duration: 1.1ms | Allocations: 295)
+  Rendered layouts/_footer.html.erb (Duration: 0.9ms | Allocations: 139)
+  Rendered layout layouts/application.html.erb (Duration: 40.9ms | Allocations: 4345)
+Completed 200 OK in 74ms (Views: 49.7ms | ActiveRecord: 0.0ms | Allocations: 7934)
+
+
+Started GET "/users/sign_up" for 122.223.5.191 at 2022-04-12 13:09:05 +0000
+Cannot render console from 122.223.5.191! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 2.4ms | Allocations: 239)
+  Rendered devise/shared/_links.html.erb (Duration: 5.8ms | Allocations: 815)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 39.6ms | Allocations: 5488)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 196)
+  Rendered searches/_form.html.erb (Duration: 0.1ms | Allocations: 59)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered layout layouts/application.html.erb (Duration: 48.4ms | Allocations: 7743)
+Completed 200 OK in 76ms (Views: 58.1ms | ActiveRecord: 0.6ms | Allocations: 15201)
+
+
+Started POST "/users" for 122.223.5.191 at 2022-04-12 13:09:27 +0000
+Cannot render console from 122.223.5.191! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"name"=>"山田道夫", "email"=>"y@y", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = ? LIMIT ?[0m  [["email", "y@y"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = ? LIMIT ?[0m  [["name", "山田道夫"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.4ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "name", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["email", "y@y"], ["encrypted_password", "$2a$12$1A8qXTAF/LobQjhICnq6/uJDf.qUoVzGYcWqi0rZhMBTDaNYZ4IDe"], ["name", "山田道夫"], ["created_at", "2022-04-12 13:09:28.335550"], ["updated_at", "2022-04-12 13:09:28.335550"]]
+  [1m[36mTRANSACTION (5.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to https://fe9e6002539d49d7b96ba370ea0fd3f8.vfs.cloud9.us-east-1.amazonaws.com/users/2
+Completed 302 Found in 360ms (ActiveRecord: 10.2ms | Allocations: 11827)
+
+
+Started GET "/users/2" for 122.223.5.191 at 2022-04-12 13:09:29 +0000
+Cannot render console from 122.223.5.191! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (4.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `get_profile_image'
+  [1m[35m (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_info.html.erb:13
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_info.html.erb:17
+  Rendered users/_info.html.erb (Duration: 72.7ms | Allocations: 14595)
+  Rendered books/_form.html.erb (Duration: 3.3ms | Allocations: 608)
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/views/books/_index.html.erb:11
+  Rendered books/_index.html.erb (Duration: 5.7ms | Allocations: 1362)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."user_id" = ? AND "books"."created_at" BETWEEN ? AND ?[0m  [["user_id", 2], ["created_at", "2022-04-12 00:00:00"], ["created_at", "2022-04-12 23:59:59.999999"]]
+  ↳ app/views/post-count/_day-count.html.erb:12
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."user_id" = ? AND "books"."created_at" BETWEEN ? AND ?[0m  [["user_id", 2], ["created_at", "2022-04-11 00:00:00"], ["created_at", "2022-04-11 23:59:59.999999"]]
+  ↳ app/views/post-count/_day-count.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."user_id" = ? AND "books"."created_at" BETWEEN ? AND ?[0m  [["user_id", 2], ["created_at", "2022-04-11 00:00:00"], ["created_at", "2022-04-11 23:59:59.999999"]]
+  ↳ app/views/post-count/_day-count.html.erb:15
+  Rendered post-count/_day-count.html.erb (Duration: 12.1ms | Allocations: 2426)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."user_id" = ? AND "books"."created_at" BETWEEN ? AND ?[0m  [["user_id", 2], ["created_at", "2022-04-06 00:00:00"], ["created_at", "2022-04-12 23:59:59.999999"]]
+  ↳ app/views/post-count/_weak-count.html.erb:12
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."user_id" = ? AND "books"."created_at" BETWEEN ? AND ?[0m  [["user_id", 2], ["created_at", "2022-03-29 00:00:00"], ["created_at", "2022-04-05 23:59:59.999999"]]
+  ↳ app/views/post-count/_weak-count.html.erb:13
+  [1m[35mCACHE  (0.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "books" WHERE "books"."user_id" = ? AND "books"."created_at" BETWEEN ? AND ?[0m  [["user_id", 2], ["created_at", "2022-03-29 00:00:00"], ["created_at", "2022-04-05 23:59:59.999999"]]
+  ↳ app/views/post-count/_weak-count.html.erb:15
+  Rendered post-count/_weak-count.html.erb (Duration: 11.4ms | Allocations: 2418)
+  Rendered users/show.html.erb within layouts/application (Duration: 114.9ms | Allocations: 22605)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.4ms | Allocations: 173)
+  Rendered searches/_form.html.erb (Duration: 2.1ms | Allocations: 1762)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered layout layouts/application.html.erb (Duration: 128.1ms | Allocations: 26445)
+Completed 200 OK in 211ms (Views: 130.0ms | ActiveRecord: 9.0ms | Allocations: 38258)
+
+
+Started POST "/books" for 122.223.5.191 at 2022-04-12 13:09:47 +0000
+Cannot render console from 122.223.5.191! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BooksController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "book"=>{"title"=>"test1", "body"=>"asmr"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[36mBook Create (3.0ms)[0m  [1m[32mINSERT INTO "books" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "test1"], ["body", "asmr"], ["user_id", 2], ["created_at", "2022-04-12 13:09:47.584528"], ["updated_at", "2022-04-12 13:09:47.584528"]]
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (4.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+Redirected to https://fe9e6002539d49d7b96ba370ea0fd3f8.vfs.cloud9.us-east-1.amazonaws.com/books/2
+Completed 302 Found in 31ms (ActiveRecord: 7.7ms | Allocations: 7864)
+
+
+Started GET "/books/2" for 122.223.5.191 at 2022-04-12 13:09:48 +0000
+Cannot render console from 122.223.5.191! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBook Load (2.9ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:7:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `get_profile_image'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_info.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_info.html.erb:17
+  Rendered users/_info.html.erb (Duration: 15.0ms | Allocations: 3693)
+  Rendered books/_form.html.erb (Duration: 0.7ms | Allocations: 279)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/book_comments/_count.html.erb:1
+  Rendered book_comments/_count.html.erb (Duration: 7.1ms | Allocations: 1692)
+  [1m[36mFavorite Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 2], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/models/book.rb:9:in `favorited_by?'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/favorites/_btn.html.erb:9
+  Rendered favorites/_btn.html.erb (Duration: 12.8ms | Allocations: 3487)
+  [1m[36mBookComment Load (0.1ms)[0m  [1m[34mSELECT "book_comments".* FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 2]]
+  ↳ app/views/book_comments/_index.html.erb:3
+  Rendered book_comments/_index.html.erb (Duration: 5.0ms | Allocations: 1202)
+  Rendered book_comments/_form.html.erb (Duration: 1.8ms | Allocations: 535)
+  Rendered books/show.html.erb within layouts/application (Duration: 54.6ms | Allocations: 12662)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 167)
+  Rendered searches/_form.html.erb (Duration: 0.8ms | Allocations: 1649)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered layout layouts/application.html.erb (Duration: 64.2ms | Allocations: 16382)
+Completed 200 OK in 89ms (Views: 66.4ms | ActiveRecord: 4.9ms | Allocations: 23634)
+
+
+Started POST "/books" for 122.223.5.191 at 2022-04-12 13:10:00 +0000
+Cannot render console from 122.223.5.191! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BooksController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "book"=>{"title"=>"aaa", "body"=>"fff"}, "commit"=>"Create Book"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[36mBook Create (1.4ms)[0m  [1m[32mINSERT INTO "books" ("title", "body", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "aaa"], ["body", "fff"], ["user_id", 2], ["created_at", "2022-04-12 13:10:00.952702"], ["updated_at", "2022-04-12 13:10:00.952702"]]
+  ↳ app/controllers/books_controller.rb:20:in `create'
+  [1m[36mTRANSACTION (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/books_controller.rb:20:in `create'
+Redirected to https://fe9e6002539d49d7b96ba370ea0fd3f8.vfs.cloud9.us-east-1.amazonaws.com/books/3
+Completed 302 Found in 26ms (ActiveRecord: 7.6ms | Allocations: 6673)
+
+
+Started GET "/books/3" for 122.223.5.191 at 2022-04-12 13:10:01 +0000
+Cannot render console from 122.223.5.191! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by BooksController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mBook Load (0.1ms)[0m  [1m[34mSELECT "books".* FROM "books" WHERE "books"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:7:in `show'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/books_controller.rb:8:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering books/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = ? AND "active_storage_attachments"."record_type" = ? AND "active_storage_attachments"."name" = ? LIMIT ?[0m  [["record_id", 2], ["record_type", "User"], ["name", "profile_image"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:48:in `get_profile_image'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."followed_id" WHERE "relationships"."follower_id" = ?[0m  [["follower_id", 2]]
+  ↳ app/views/users/_info.html.erb:13
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" INNER JOIN "relationships" ON "users"."id" = "relationships"."follower_id" WHERE "relationships"."followed_id" = ?[0m  [["followed_id", 2]]
+  ↳ app/views/users/_info.html.erb:17
+  Rendered users/_info.html.erb (Duration: 15.7ms | Allocations: 3687)
+  Rendered books/_form.html.erb (Duration: 0.6ms | Allocations: 274)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/book_comments/_count.html.erb:1
+  Rendered book_comments/_count.html.erb (Duration: 4.2ms | Allocations: 884)
+  [1m[36mFavorite Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "favorites" WHERE "favorites"."book_id" = ? AND "favorites"."user_id" = ? LIMIT ?[0m  [["book_id", 3], ["user_id", 2], ["LIMIT", 1]]
+  ↳ app/models/book.rb:9:in `favorited_by?'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "favorites" WHERE "favorites"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/favorites/_btn.html.erb:9
+  Rendered favorites/_btn.html.erb (Duration: 10.2ms | Allocations: 1738)
+  [1m[36mBookComment Load (0.1ms)[0m  [1m[34mSELECT "book_comments".* FROM "book_comments" WHERE "book_comments"."book_id" = ?[0m  [["book_id", 3]]
+  ↳ app/views/book_comments/_index.html.erb:3
+  Rendered book_comments/_index.html.erb (Duration: 3.7ms | Allocations: 751)
+  Rendered book_comments/_form.html.erb (Duration: 0.7ms | Allocations: 277)
+  Rendered books/show.html.erb within layouts/application (Duration: 44.4ms | Allocations: 8393)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_header.html.erb (Duration: 0.3ms | Allocations: 160)
+  Rendered searches/_form.html.erb (Duration: 0.9ms | Allocations: 1647)
+  Rendered layouts/_footer.html.erb (Duration: 0.1ms | Allocations: 37)
+  Rendered layout layouts/application.html.erb (Duration: 54.9ms | Allocations: 12200)
+Completed 200 OK in 70ms (Views: 56.2ms | ActiveRecord: 1.4ms | Allocations: 14982)
+
+
